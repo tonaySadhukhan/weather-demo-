@@ -27,6 +27,17 @@ app.put('/add',async (req,res)=>{
 }
 
 });
+app.get('/temp',async (req,res)=>{
+    try{
+        const result=await weather.find();
+        if(result){
+        res.status(200).json(result);
+        }
+    }catch(err){
+        console.log(err);
+    }
+
+});
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
